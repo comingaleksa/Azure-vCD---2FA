@@ -200,8 +200,6 @@ Biramo __Login with Single Sign On__.
 
 ![VCD login1 ](images/login1.PNG)
 
-</br>
-
 Aplikacija nam vraća login koji je podešen za korisnika na Azuru.</br>
 
 ![VCD login2 ](images/login2.PNG)
@@ -215,3 +213,5 @@ I nakon uspešnog logovanja, dolazimo do novog prozora vCD-a, gde smo ulogovani 
 </br>
 
 ![VCD loginuspesan ](images/uspesanlogin.PNG)
+
+  *Thats all folks!*
