@@ -35,7 +35,7 @@ __Morate imati neku od sledećih titula na Azuru:__
  Kreiramo novu aplikaciju za naše potrebe klikom na dugme New Application, slika ispod.
 
 
-![Azure create Enterprise app](images/azureenterpriseapp.png)
+![Azure create Enterprise app](images/azureenterpriseapp.PNG)
 
 Na sledećem prozoru je potreno odabrati kreiranje nove aplikacije, zatim moramo joj zadati ime i izabrati opciju (Non-Gallery). Uputstvo na slici ispod.
 
@@ -60,7 +60,7 @@ Otvoriće nam se prozor sa podešavanjima atributa i claim-ova.
 * Kopiramo __Metadata__ link i kliknemo iznad dugme  __Edit__. </br>
 Podešavanje po koracima na slici ispod.
 
-![VCD SAML](images/vcloudSAML.png)
+![VCD SAML](images/vcloudSAML.PNG)
 
 Otvoriće se Edit SAML Configuration prozor, i prazno polje Entity ID u koje ćemo nalepiti link koji smo iskopirali na prethodnom koraku i snimiti.
 
@@ -90,12 +90,12 @@ Nakon klika na __Edit__ dugme, otvoriće nam se podešavanje ovog polja.
 </br>
 Kliknemo na dugme __Add new claim__. </br>
 
-![Claims Azure podesavanje](images/azureattclm.png)
+![Claims Azure podesavanje](images/azureattclm.PNG)
 
 Otvoriće se prozor u koji možemo da dodamo atribute i claimove.
 
 
-![SAML Azure save](images/manageclaim.png)
+![SAML Azure save](images/manageclaim.PNG)
 
 Potrebno je kreirati 2 claima, Username i Roles. </br>
 Podaci koji treba da se unesu u prvi claim su:
@@ -130,7 +130,7 @@ Potrebno je nalepiti te podatke u Identity provider.
 Vraćamo se u prozor gde smo nalepili link od Identity providera.</br>
 __To radimo tako što biramo Edit opciju u SAML Configuration prozoru__
 
-![Edit dugme](images/edit.png)
+![Edit dugme](images/edit.PNG)
 
 Nakon toga biramo tab __Identity Provider__.
 </br>
@@ -140,7 +140,7 @@ Nakon toga biramo tab __Identity Provider__.
 * Uploadujemo ga na vCloud Direktor.
 * Snimimo podešavanje. 
   
-![Vcloud inject metadata from pc](images/vcloudmetadata.png)
+![Vcloud inject metadata from pc](images/vcloudmetadata.PNG)
 
 Nakon ovog koraka, uspešno smo kreirali 2FA na VMware Cloud Direktoru.
 
