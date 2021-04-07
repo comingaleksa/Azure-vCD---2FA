@@ -1,6 +1,10 @@
 # vCloud SAML autentifikacija sa Azure AD-om
 
-U nastavku je opisan proces konfiguracije AAD-a i vCloud direktora za potrebe 2FA.
+U nastavku je opisan proces konfiguracije Azure-a i vCloud direktora za potrebe 2FA.
+U čemu će vam pomoći ovo uputstvo?
+
+Uputstvo sadrži celokupan proces konfiguracije 2FA po koracima sa screenshot-ovima i opisima tih koraka, pa samim ponavljanjem koraka možete lako konfigurisati 2FA kroz 10-tak minuta.
+</br>
 
 __Proces ukratko:__
 
@@ -12,9 +16,9 @@ __Proces ukratko:__
 6. Importovanje korisnika u vCD-u i Azure
 7. Testiranje funkcionalnosti
 
-Pre nego počnemo:
+Pre nego što počnemo:
 
-__Morate imati neku od sledećih titula na Azuru:__
+__Morate imati neku od sledećih titula na Azure-u:__
 
 ``` 
  * Global Administrator
@@ -32,7 +36,7 @@ __Morate imati sledeću titulu na VMware Cloud Director-u:__
 ##  __Kreiranje Enterprise aplikacije na Azuru__
 
  Kao početni korak, ulogovaćemo se na [Azure portal](https://portal.azure.com). </br>
-
+</br>
 ![Login on Azure](images/azurelogin.png)
 
 
@@ -47,14 +51,13 @@ Na sledećem prozoru je potreno odabrati kreiranje nove aplikacije, zatim moramo
 
 ![Azure create Enterprise app detalji](images/azureentdetalji.png)
 
-Nakon kreiranja aplikacije, pojaviće se prozor sa aplikacijom. Klikom na Single sign on prelazimo na podešavanja
+Nakon kreiranja aplikacije, pojaviće se prozor sa aplikacijom. Klikom na Single sign on prelazimo na podešavanja SAML-a.</br>
 
 
 ![Azure SSO](images/azureSSO.png)
 
 Prelazimo na prozor gde biramo način autentifikacije, biramo SAML.
-## Podešavanje SSO-a na Azuru
-
+</br>
 ![Azure SAML](images/azureSAML.png)
 
 Otvoriće nam se prozor sa podešavanjima atributa i claim-ova.
@@ -85,17 +88,22 @@ Sada podešavamo SAML metadata na Azuru.
 
 ![SAML Azure podešavanje](images/azureSAMLmetadata.png)
 
+
 Nakon petog koraka, pojaviće se prozor, potrebno je kliknuti __Save__ dugme.
-![SAML Azure save](images/azurebasic.png)
+
+![SAML Azure save](images/azurebasic.PNG)
 
 Potrajaće proces nekih 5-10 sekundi, nakon toga videćemo da su se neki podaci promenili: Identifier, Reply URL i Logout URL.
 
 ## Podešavanje User attributes and claims u aplikaciji na Azuru
 
 Potrebno je promeniti polje __User Attributes and Claims__, uputstvo na slici ispod.
-![Claims Azure](images/azureatt.png)
+
+![Claims Azure](images/azureatt.PNG)
+
 Nakon klika na __Edit__ dugme, otvoriće nam se podešavanje ovog polja.
 </br>
+
 Kliknemo na dugme __Add new claim__. </br>
 
 ![Claims Azure podesavanje](images/azureattclm.PNG)
@@ -108,6 +116,7 @@ Otvoriće se prozor u koji možemo da dodamo atribute i claimove.
 Potrebno je kreirati 2 claima, Username i Roles. </br>
 Podaci koji treba da se unesu u prvi claim su:
 </br>
+
 ```
 Username 
 
@@ -149,7 +158,7 @@ Nakon toga biramo tab __Identity Provider__.
 * Uploadujemo ga na vCloud Direktor.
 * Snimimo podešavanje. 
   
-![Vcloud inject metadata from pc](images/vcloudMetadata.PNG)
+![Vcloud inject metadata from pc](images/vcloudMetadata.png)
 
 Nakon ovog koraka, uspešno smo kreirali 2FA na VMware Cloud Direktoru.
 
@@ -158,23 +167,28 @@ Nakon ovog koraka, uspešno smo kreirali 2FA na VMware Cloud Direktoru.
 ## Importovanje korisnika u Azure i vCloud direktor
 
 Ono što nam preostaje je da dodamo korisnike u našu aplikaciju da bi smo imali mogućnost logovanja na vCD.
-
+</br>
 Prvo ćemo dodati korisnika u aplikaciju na Azure-u.</br>
 Potrebno je da odemo na stranicu aplikacije koju smo kreirali i da izaberemo polje __Users and Groups__.</br>
 Nakon toga kliknemo dugme __Add User/Group__.</br>  
 ![Azuer korisnik](images/azurekorisnik.PNG)
 
 Otvara nam se prozor u kom možemo da izaberemo korisnika i dodamo ga u aplikaciju.
+</br>
 
 ![Azuer korisnik biraj](images/azurekorisnikbiraj.PNG)
 
 Nakon ovog koraka, istog korisnika moramo da importujemo u vCloud Direktor.
-To radimo tako što odemo na stranicu __Applications__ i biramo __Users__ tab na vCD-u, i biramo dugme __Import User__.
+To radimo tako što odemo na stranicu __Applications__ i biramo __Users__ tab na vCD-u, i biramo dugme __Import User__.</br>
+
 ![VCD korisnik ](images/vcdkorisnik.PNG)
 
 Pojavljuje nam se prozor u kom možemo da unesemo email adresu i da odaberemo ulogu tog korisnika na našem vCD-u.
+</br>
+
 ![VCD korisnik ](images/vcdkorisnikbiraj.PNG)
-Kada snimimo našeg korisnika (koji je identičan kao naš korisnika na aplikaciji u Azuru), završili smo celokipan proces konfigracije. Sada možemo da testiramo funkcionalnost. Možemo da se izlogujemo sa vCD-a i da probamo ponovo da se ulogujemo.
+
+Kada snimimo našeg korisnika (koji je identičan kao naš korisnika na aplikaciji u Azuru), završili smo celokupan proces konfigracije. Sada možemo da testiramo funkcionalnost. Možemo da se izlogujemo sa vCD-a i da probamo ponovo da se ulogujemo.
 
 ----------------------------------------
 ----------------------------------------
@@ -183,12 +197,21 @@ Kada snimimo našeg korisnika (koji je identičan kao naš korisnika na aplikaci
 Kada se izlogujemo sa našeg naloga, vCD če nam vratiti sledeću stranicu.
 
 Biramo __Login with Single Sign On__.
+
 ![VCD login1 ](images/login1.PNG)
+
+</br>
+
 Aplikacija nam vraća login koji je podešen za korisnika na Azuru.</br>
 
 ![VCD login2 ](images/login2.PNG)
-Aplikacija zahteva drugi faktor, što je u ovom slučaju aplikacija Microsoft Authenticator.
+</br>Aplikacija zahteva drugi faktor, što je u ovom slučaju aplikacija Microsoft Authenticator.</br>
+
 ![VCD login3 ](images/login3.PNG)
 
+</br>
 I nakon uspešnog logovanja, dolazimo do novog prozora vCD-a, gde smo ulogovani sa novim korisnikom uz pomoć 2FA.
+</br>
+</br>
+
 ![VCD loginuspesan ](images/uspesanlogin.PNG)
