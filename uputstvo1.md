@@ -32,7 +32,8 @@ __Morate imati sledeću titulu na VMware Cloud Director-u:__
 ``` 
  * Organizational Administrator
 ```
-
+----------------------------
+----------------------------
 ##  __Kreiranje Enterprise aplikacije na Azuru__
 
  Kao početni korak, ulogovaćemo se na [Azure portal](https://portal.azure.com). </br>
