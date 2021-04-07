@@ -49,7 +49,7 @@ Nakon kreiranja aplikacije, pojaviće se prozor sa aplikacijom. Klikom na Single
 Prelazimo na prozor gde biramo način autentifikacije, biramo SAML.
 ## Podešavanje SSO-a na Azuru
 
-![Azure SAML](images/azureSaml.png)
+![Azure SAML](images/azureSAML.png)
 
 Otvoriće nam se prozor sa podešavanjima atributa i claim-ova.
 
@@ -60,11 +60,11 @@ Otvoriće nam se prozor sa podešavanjima atributa i claim-ova.
 * Kopiramo __Metadata__ link i kliknemo iznad dugme  __Edit__. </br>
 Podešavanje po koracima na slici ispod.
 
-![VCD SAML podesavanje](images/vcloudSAML.png)
+![VCD SAML](images/vcloudSAML.png)
 
 Otvoriće se Edit SAML Configuration prozor, i prazno polje Entity ID u koje ćemo nalepiti link koji smo iskopirali na prethodnom koraku i snimiti.
 
-![VCD SAML podesavanje](images/vcloudSAMLconfig.png)
+![VCD SAML config](images/vcloudSAMLconfig.png)
 
 ## Nakon ovog koraka vraćamo se na podešavanje SAML-a na Azuru.
 
