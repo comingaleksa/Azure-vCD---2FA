@@ -1,6 +1,6 @@
 # vCloud SAML autentifikacija sa Azure AD-om
 
-U nastavku je opisan proces konfiguracije Azure-a i vCloud direktora za potrebe 2FA.
+U nastavku je opisan proces konfiguracije Azure-a AD-a i vCloud direktora za potrebe 2FA.
 U čemu će vam pomoći ovo uputstvo?
 
 Uputstvo sadrži celokupan proces konfiguracije 2FA po koracima sa screenshot-ovima i opisima tih koraka, pa samim ponavljanjem koraka možete lako konfigurisati 2FA kroz 10-tak minuta.
@@ -12,8 +12,8 @@ __Proces ukratko:__
 2. Podešavanje Single Sign On-a na Azuru
 3. Podešavanje SAML-a na VMware Cloud Director-u
 4. Podešavanje atributa i claimova aplikacije na Azuru
-5. Import federation metadata u VMware Cloud Direktor
-6. Importovanje korisnika u vCD-u i Azure
+5. Import federation metadata u VMware Cloud Director
+6. Importovanje korisnika u vCD-u i dodavanje korsinika na Azure Enterprise app
 7. Testiranje funkcionalnosti
 
 Pre nego što počnemo:
@@ -59,6 +59,7 @@ Nakon kreiranja aplikacije, pojaviće se prozor sa aplikacijom. Klikom na Single
 
 Prelazimo na prozor gde biramo način autentifikacije, biramo SAML.
 </br>
+
 ![Azure SAML](images/azureSAML.png)
 
 Otvoriće nam se prozor sa podešavanjima atributa i claim-ova.
@@ -90,7 +91,7 @@ Sada podešavamo SAML metadata na Azuru.
 ![SAML Azure podešavanje](images/azureSAMLmetadata.png)
 
 
-Nakon petog koraka, pojaviće se prozor, potrebno je kliknuti __Save__ dugme.
+Nakon petog koraka, pojaviće se prozor __Basic SAML Configuration__, potrebno je kliknuti __Save__ dugme.
 
 ![SAML Azure save](images/azurebasic.PNG)
 
@@ -138,12 +139,12 @@ Source Attribute:  user.assignedroles
 
 Nakon kreiranja claimova, vraćamo se na __Single Sign On__ stranicu naše aplikacije.</br>
 Pojaviće se prozor koji izgleda kao na slici ispod.
-
+Treba download-ovati Fedeartion metadata.
 ![Download federation metadata](images/federation.png)
 
 Nakon download-ovanja Federation Metadata, vraćamo se na VMware Cloud Director.</br>
  
- ## Importovanje Federation Metadata u vCloud Direktor.
+ ## Importovanje Federation Metadata u vCloud Director
 Potrebno je nalepiti te podatke u Identity provider.
 </br>
 Vraćamo se u prozor gde smo nalepili link od Identity providera.</br>
@@ -155,8 +156,8 @@ Nakon toga biramo tab __Identity Provider__.
 </br>
 * Uključujemo __Use SAML Identity Provision:__.
 * Kliknemo __Browse__ dugme.
-* Nadjemo downloadovani xml file (u prethodnom koraku smo sa azura skinuli fajl).
-* Uploadujemo ga na vCloud Direktor.
+* Nadjemo downloadovani xml file (u prethodnom koraku smo sa azure-a skinuli fajl).
+* Uploadujemo ga na vCloud Director.
 * Snimimo podešavanje. 
   
 ![Vcloud inject metadata from pc](images/vcloudMetadata.png)
@@ -165,7 +166,7 @@ Nakon ovog koraka, uspešno smo kreirali 2FA na VMware Cloud Direktoru.
 
 -----------------------------------------
 -----------------------------------------
-## Importovanje korisnika u Azure i vCloud direktor
+## Importovanje korisnika u Azure i vCloud director
 
 Ono što nam preostaje je da dodamo korisnike u našu aplikaciju da bi smo imali mogućnost logovanja na vCD.
 </br>
@@ -215,4 +216,3 @@ I nakon uspešnog logovanja, dolazimo do novog prozora vCD-a, gde smo ulogovani 
 
 ![VCD loginuspesan ](images/uspesanlogin.PNG)
 
-  *Thats all folks!*
